@@ -11,28 +11,28 @@ import Carousel from "@/components/Carousel";
 
 export default function Home() {
     const [modalVisible, setModalVisible] = useState(false);
-    const [cards, setCards] = useState([]); // Lista de cards
+    const [cards, setCards] = useState([]);
     const [searchText, setSearchText] = useState('');
     const navigation = useNavigation();
 
-    // Função para cadastrar um novo card
+ 
     const handleRegister = (newCard: any) => {
-        const newId = cards.length > 0 ? cards[cards.length - 1].id + 1 : 1; // Gera um ID único e sequencial
+        const newId = cards.length > 0 ? cards[cards.length - 1].id + 1 : 1; 
         setCards([...cards, { ...newCard, id: newId }]);
     };
 
-    // Função para deletar o card selecionado
+   
     const deleteCard = (id: number) => {
         console.log(`Deletando o card com id: ${id}`);
-        setCards(cards.filter(card => card.id !== id)); // Remove apenas o card com o ID específico
+        setCards(cards.filter(card => card.id !== id)); 
     };
 
-    // Filtra os cards de acordo com o texto da busca
+   
     const filteredCards = cards.filter((card) =>
         card.name.toLowerCase().includes(searchText.toLowerCase())
     );
 
-    // Função para editar o card selecionado
+   
     const editCard = (id: number, newData: any) => {
         setCards(cards.map(card => card.id === id ? { ...card, ...newData } : card));
     };
@@ -63,18 +63,18 @@ export default function Home() {
 
                 <FlatList
                     data={filteredCards}
-                    keyExtractor={(item) => item.id.toString()} // Usa o ID exclusivo como chave
+                    keyExtractor={(item) => item.id.toString()} 
                     renderItem={({ item }) => (
                         <Card
-                            id={item.id} // Passa o ID do card
+                            id={item.id} 
                             name={item.name}
                             profession={item.profession}
                             level={item.level}
                             address={item.address}
                             phone={item.phone}
                             image={item.image}
-                            onDelete={deleteCard} // Passa a função de deletar
-                            onEdit={editCard} // Passa a função de editar
+                            onDelete={deleteCard}
+                            onEdit={editCard} 
                         />
                     )}
                     ListEmptyComponent={<Text style={styles.noCardsText}>Nenhum card encontrado</Text>}

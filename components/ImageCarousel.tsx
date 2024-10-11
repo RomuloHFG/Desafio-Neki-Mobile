@@ -1,4 +1,3 @@
-// import React, { useState } from "react";
 import { View, Image, StyleSheet, Dimensions } from "react-native";
 import Carousel from 'react-native-snap-carousel';
 

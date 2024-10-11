@@ -11,9 +11,9 @@ const images = [
 ];
 
 const Carousel: React.FC = () => {
-    const [currentIndex, setCurrentIndex] = useState(0); // Controla o índice atual
+    const [currentIndex, setCurrentIndex] = useState(0); 
 
-    // Função para alterar a imagem
+  
     const changeImage = (direction: "next" | "prev") => {
         if (direction === "next") {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -22,13 +22,13 @@ const Carousel: React.FC = () => {
         }
     };
 
-    // Efeito para a troca automática de imagens
+    
     useEffect(() => {
         const interval = setInterval(() => {
             changeImage("next");
-        }, 3000); // Troca a imagem a cada 3 segundos
+        }, 3000); 
 
-        return () => clearInterval(interval); // Limpa o intervalo ao desmontar o componente
+        return () => clearInterval(interval); 
     }, []);
 
     return (
