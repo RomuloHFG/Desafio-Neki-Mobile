@@ -88,14 +88,13 @@ const Card: React.FC<CardProps> = ({ id, name, profession, image, level, address
                 </View>
             </Modal>
 
-            {/* Modal de Edição */}
+   
             <Modal visible={editModalVisible} transparent={true} animationType="slide">
                 <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
                         <Text style={styles.modalTitle}>Editar {name}</Text>
                         <Button title="Escolher Imagem" onPress={pickImage} />
 
-                        {/* Input para o Nome */}
                         <Text style={styles.label}>Nome:</Text>
                         <TextInput
                             placeholder="Nome"
@@ -104,7 +103,7 @@ const Card: React.FC<CardProps> = ({ id, name, profession, image, level, address
                             onChangeText={(text) => setNewData({ ...newData, name: text })}
                         />
 
-                        {/* Picker para selecionar a profissão */}
+                      
                         <Text style={styles.label}>Área de Atuação:</Text>
                         <Picker
                             selectedValue={newData.profession}
@@ -124,7 +123,6 @@ const Card: React.FC<CardProps> = ({ id, name, profession, image, level, address
                             <Picker.Item label="Urologia" value="Urologia" />
                         </Picker>
 
-                        {/* Picker para selecionar o nível */}
                         <Text style={styles.label}>Nível de Atuação:</Text>
                         <Picker
                             selectedValue={newData.level}
@@ -143,7 +141,6 @@ const Card: React.FC<CardProps> = ({ id, name, profession, image, level, address
                             <Picker.Item label="Professor" value="Professor" />
                         </Picker>
 
-                        {/* Input para o Endereço */}
                         <Text style={styles.label}>Endereço:</Text>
                         <TextInput
                             placeholder="Endereço"
@@ -152,7 +149,7 @@ const Card: React.FC<CardProps> = ({ id, name, profession, image, level, address
                             onChangeText={(text) => setNewData({ ...newData, address: text })}
                         />
 
-                        {/* Input para o Telefone */}
+                      
                         <Text style={styles.label}>Telefone:</Text>
                         <TextInput
                             placeholder="Telefone"
